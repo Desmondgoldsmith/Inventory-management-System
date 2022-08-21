@@ -37,14 +37,21 @@ namespace ShopriteInventoryApp
             this.categoriesTableAdapter.Fill(this.shopriteDataSet.Categories);
 
             //load id into textbox60
+            GenerateID();
+
+            //disable buttons
+            bunifuButton4.Enabled = false;
+            bunifuButton3.Enabled = false;
+
+        }
+
+        public void GenerateID()
+        {
+
+            //load id into textbox60
             Random generator = new Random();
             String r = generator.Next(0, 1000000).ToString("D6");
             bunifuTextBox1.Text = r;
-
-            //disable buttons
-            bunifuThinButton23.Enabled = false;
-            bunifuThinButton22.Enabled = false;
-
         }
         private void Randomgenerator()
         {
@@ -53,7 +60,6 @@ namespace ShopriteInventoryApp
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            SaveCategory();
         }
 
         //SAVE CATEGORY
@@ -77,31 +83,103 @@ namespace ShopriteInventoryApp
             try
             {
                 Connect.openConn();
-                string sqlQuery = "Insert into Categories(CategoryName,CategoryID) Values(@catName,@CatID)";
-                SqlCommand cmd = new SqlCommand(sqlQuery, Connect.returnConn());
-                cmd.Parameters.AddWithValue("@CatID", bunifuTextBox1.Text);
-                cmd.Parameters.AddWithValue("@catName", bunifuTextBox2.Text);
-
-                if(cmd.ExecuteNonQuery() == 1)
+                //checking if student already exist
+                SqlCommand chk = new SqlCommand("SELECT * FROM Categories WHERE CategoryName='" + bunifuTextBox2.Text + "'", Connect.returnConn());
+                SqlDataReader dr = chk.ExecuteReader();
+                if (dr.HasRows)
                 {
-                    MessageBox.Show("Category With ID of '"+ bunifuTextBox1.Text +"' Saved Successfully", "Saved!", 0, MessageBoxIcon.Information);
-                    this.categoriesTableAdapter.Fill(this.shopriteDataSet.Categories);
-
+                    MessageBox.Show("Category WITH NAME '" + bunifuTextBox2.Text + "' IS ALREADY REGISTERED", "NOTICE", 0, MessageBoxIcon.Exclamation);
+                    bunifuTextBox2.Clear();
+                    Connect.closeConn();
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Error In Saving Record", "Error!", 0, MessageBoxIcon.Error);
-                    return;
-                }
 
+                    string sqlQuery = "Insert into Categories(CategoryName,CategoryID) Values(@catName,@CatID)";
+                    SqlCommand cmd = new SqlCommand(sqlQuery, Connect.returnConn());
+                    cmd.Parameters.AddWithValue("@CatID", bunifuTextBox1.Text);
+                    cmd.Parameters.AddWithValue("@catName", bunifuTextBox2.Text);
+
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Category With ID of '" + bunifuTextBox1.Text + "' Saved Successfully", "Saved!", 0, MessageBoxIcon.Information);
+                        this.categoriesTableAdapter.Fill(this.shopriteDataSet.Categories);
+                        Reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error In Saving Record", "Error!", 0, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Error",0,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", 0, MessageBoxIcon.Error);
             }
-            finally{
+            finally
+            {
                 Connect.closeConn();
             }
+        }
+
+        private void bunifuDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow click = bunifuDataGridView1.Rows[e.RowIndex];
+                bunifuTextBox2.Text = click.Cells[1].Value.ToString();
+                bunifuTextBox1.Text = click.Cells[2].Value.ToString();
+
+
+                bunifuButton4.Enabled = true;
+                bunifuButton3.Enabled = true;
+                bunifuButton2.Enabled = false;
+            }
+        }
+
+        private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow click = bunifuDataGridView1.Rows[e.RowIndex];
+                bunifuTextBox2.Text = click.Cells[1].Value.ToString();
+                bunifuTextBox1.Text = click.Cells[2].Value.ToString();
+
+
+                bunifuButton4.Enabled = true;
+                bunifuButton3.Enabled = true;
+                bunifuButton2.Enabled = false;
+
+            }
+        }
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+
+            Reset();
+        }
+
+        public void Reset()
+        {
+            bunifuTextBox1.Clear();
+            GenerateID();
+            bunifuTextBox2.Clear();
+            bunifuButton2.Enabled = true;
+            bunifuButton4.Enabled = false;
+            bunifuButton3.Enabled = false;
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            SaveCategory();
+
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

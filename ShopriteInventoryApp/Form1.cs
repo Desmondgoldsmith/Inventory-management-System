@@ -49,8 +49,17 @@ namespace ShopriteInventoryApp
 
         private void bunifuButton7_Click(object sender, EventArgs e)
         {
-            var mainForm = new Form1();
-            mainForm.Close();
+
+            if (MessageBox.Show("ARE YOU SURE YOU WANT TO EXIT THIS APP ??", "EXIT?", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                MessageBox.Show("Thank You For Using This App", "Thank You", 0, MessageBoxIcon.Information);
+                Application.Exit();
+            }
+            else
+            {
+                this.Show();
+
+            }
         }
     }
 }
