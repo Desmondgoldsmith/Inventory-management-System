@@ -62,6 +62,8 @@
             this.bunifuButton2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuColorTransition1 = new Bunifu.UI.WinForms.BunifuColorTransition(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
@@ -77,6 +79,7 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.White;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.textBox1);
             this.bunifuPanel1.Controls.Add(this.bunifuButton4);
             this.bunifuPanel1.Controls.Add(this.bunifuButton3);
             this.bunifuPanel1.Controls.Add(this.bunifuButton2);
@@ -91,6 +94,7 @@
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(1284, 701);
             this.bunifuPanel1.TabIndex = 0;
+            this.bunifuPanel1.Click += new System.EventHandler(this.bunifuPanel1_Click);
             // 
             // bunifuButton1
             // 
@@ -242,7 +246,7 @@
             this.bunifuDataGridView1.HeaderBackColor = System.Drawing.Color.ForestGreen;
             this.bunifuDataGridView1.HeaderBgColor = System.Drawing.Color.Empty;
             this.bunifuDataGridView1.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridView1.Location = new System.Drawing.Point(478, 150);
+            this.bunifuDataGridView1.Location = new System.Drawing.Point(478, 181);
             this.bunifuDataGridView1.Name = "bunifuDataGridView1";
             this.bunifuDataGridView1.RowHeadersVisible = false;
             this.bunifuDataGridView1.RowTemplate.Height = 40;
@@ -295,7 +299,7 @@
             this.bunifuTextBox2.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuTextBox2.BorderColorHover = System.Drawing.Color.MediumSeaGreen;
             this.bunifuTextBox2.BorderColorIdle = System.Drawing.Color.Black;
-            this.bunifuTextBox2.BorderRadius = 1;
+            this.bunifuTextBox2.BorderRadius = 3;
             this.bunifuTextBox2.BorderThickness = 2;
             this.bunifuTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.bunifuTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -355,6 +359,7 @@
             this.bunifuTextBox2.TextPlaceholder = "Product Name";
             this.bunifuTextBox2.UseSystemPasswordChar = false;
             this.bunifuTextBox2.WordWrap = true;
+            this.bunifuTextBox2.TextChanged += new System.EventHandler(this.bunifuTextBox2_TextChanged);
             // 
             // bunifuTextBox1
             // 
@@ -369,7 +374,7 @@
             this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.MediumSeaGreen;
             this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.Black;
-            this.bunifuTextBox1.BorderRadius = 1;
+            this.bunifuTextBox1.BorderRadius = 4;
             this.bunifuTextBox1.BorderThickness = 2;
             this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -429,6 +434,7 @@
             this.bunifuTextBox1.TextPlaceholder = "Category ID";
             this.bunifuTextBox1.UseSystemPasswordChar = false;
             this.bunifuTextBox1.WordWrap = true;
+            this.bunifuTextBox1.TextChanged += new System.EventHandler(this.bunifuTextBox1_TextChanged);
             // 
             // bunifuPanel2
             // 
@@ -657,6 +663,7 @@
             this.bunifuButton3.TextMarginLeft = 0;
             this.bunifuButton3.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton3.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton3.Click += new System.EventHandler(this.bunifuButton3_Click);
             // 
             // bunifuButton4
             // 
@@ -748,6 +755,26 @@
             this.bunifuButton4.UseDefaultRadiusAndThickness = true;
             this.bunifuButton4.Click += new System.EventHandler(this.bunifuButton4_Click);
             // 
+            // bunifuColorTransition1
+            // 
+            this.bunifuColorTransition1.AutoTransition = false;
+            this.bunifuColorTransition1.ColorArray = new System.Drawing.Color[] {
+        System.Drawing.Color.Purple,
+        System.Drawing.Color.LightBlue,
+        System.Drawing.Color.Orange};
+            this.bunifuColorTransition1.EndColor = System.Drawing.Color.White;
+            this.bunifuColorTransition1.Interval = 10;
+            this.bunifuColorTransition1.ProgessValue = 0;
+            this.bunifuColorTransition1.StartColor = System.Drawing.Color.White;
+            this.bunifuColorTransition1.TransitionControl = null;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(81, 155);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 11;
+            // 
             // Categories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,6 +789,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Categories_Load);
             this.bunifuPanel1.ResumeLayout(false);
+            this.bunifuPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopriteDataSet)).EndInit();
@@ -790,5 +818,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton4;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton3;
+        private Bunifu.UI.WinForms.BunifuColorTransition bunifuColorTransition1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

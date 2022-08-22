@@ -42,6 +42,7 @@ namespace ShopriteInventoryApp
             //disable buttons
             bunifuButton4.Enabled = false;
             bunifuButton3.Enabled = false;
+            textBox1.Visible = false;
 
         }
 
@@ -90,12 +91,12 @@ namespace ShopriteInventoryApp
                 {
                     MessageBox.Show("Category WITH NAME '" + bunifuTextBox2.Text + "' IS ALREADY REGISTERED", "NOTICE", 0, MessageBoxIcon.Exclamation);
                     bunifuTextBox2.Clear();
-                    Connect.closeConn();
                     return;
+                    dr.Close();
                 }
                 else
                 {
-
+                    dr.Close();
                     string sqlQuery = "Insert into Categories(CategoryName,CategoryID) Values(@catName,@CatID)";
                     SqlCommand cmd = new SqlCommand(sqlQuery, Connect.returnConn());
                     cmd.Parameters.AddWithValue("@CatID", bunifuTextBox1.Text);
@@ -132,7 +133,7 @@ namespace ShopriteInventoryApp
                 DataGridViewRow click = bunifuDataGridView1.Rows[e.RowIndex];
                 bunifuTextBox2.Text = click.Cells[1].Value.ToString();
                 bunifuTextBox1.Text = click.Cells[2].Value.ToString();
-
+                textBox1.Text = click.Cells[0].Value.ToString();
 
                 bunifuButton4.Enabled = true;
                 bunifuButton3.Enabled = true;
@@ -179,7 +180,102 @@ namespace ShopriteInventoryApp
 
         private void bunifuButton4_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(bunifuTextBox1.Text))
+            {
+                MessageBox.Show("The ID field cannot be Null", "Error", 0, MessageBoxIcon.Warning);
+                bunifuTextBox1.Focus();
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(bunifuTextBox2.Text))
+            {
+                MessageBox.Show("The 'Category Name' field cannot be Null", "Error", 0, MessageBoxIcon.Warning);
+                bunifuTextBox2.Focus();
+                return;
+            }
+            try
+            {
+                Connect.openConn();
+                var query = "update Categories set CategoryName = @CatName,CategoryID=@CatID where id = @id";
+                SqlCommand cmd = new SqlCommand(query, Connect.returnConn());
+                cmd.Parameters.AddWithValue("@CatName", bunifuTextBox2.Text);
+                cmd.Parameters.AddWithValue("@CatID", bunifuTextBox1.Text);
+                cmd.Parameters.AddWithValue("@id", textBox1.Text);
 
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Category with mame '" + bunifuTextBox2.Text + "' Updated Successfully ", "Success", 0, MessageBoxIcon.Information);
+                    this.categoriesTableAdapter.Fill(this.shopriteDataSet.Categories);
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Connect.closeConn();
+            }
+        }
+
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(bunifuTextBox1.Text))
+            {
+                MessageBox.Show("The ID field cannot be Null", "Error", 0, MessageBoxIcon.Warning);
+                bunifuTextBox1.Focus();
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(bunifuTextBox2.Text))
+            {
+                MessageBox.Show("The 'Category Name' field cannot be Null", "Error", 0, MessageBoxIcon.Warning);
+                bunifuTextBox2.Focus();
+                return;
+            }
+            try
+            {
+
+                Connect.openConn();
+                if (MessageBox.Show("THIS ACTION CAN'T BE REVERSED. ARE YOU SURE YOU WANT TO DELETE?", "DELETE RECORD", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    var query = "Delete from Categories where id = @id";
+                    SqlCommand cmd = new SqlCommand(query, Connect.returnConn());
+                    cmd.Parameters.AddWithValue("@id", textBox1.Text);
+
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Category with name '" + bunifuTextBox1.Text + "' is deleted successfully!", "Deleted!", 0, MessageBoxIcon.Warning);
+                        this.categoriesTableAdapter.Fill(this.shopriteDataSet.Categories);
+                        bunifuTextBox2.Clear();
+                    }
+                }else
+                {
+                    this.Show();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Connect.closeConn();
+            }
         }
     }
 }

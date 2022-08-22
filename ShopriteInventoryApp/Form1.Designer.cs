@@ -86,7 +86,7 @@
             this.bunifuPanel1.Location = new System.Drawing.Point(5, 0);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(216, 708);
+            this.bunifuPanel1.Size = new System.Drawing.Size(216, 720);
             this.bunifuPanel1.TabIndex = 0;
             // 
             // bunifuButton7

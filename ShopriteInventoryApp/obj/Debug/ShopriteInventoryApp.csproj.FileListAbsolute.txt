@@ -20,3 +20,4 @@ c:\users\lenovo pc\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\Sh
 c:\users\lenovo pc\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Categories.resources
 c:\users\lenovo pc\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
+C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.dll
