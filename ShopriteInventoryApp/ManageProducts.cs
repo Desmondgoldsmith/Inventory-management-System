@@ -109,16 +109,16 @@ namespace ShopriteInventoryApp
                     FileStream stream = new FileStream(imglocation, FileMode.Open, FileAccess.Read);
                     BinaryReader brs = new BinaryReader(stream);
                     images = brs.ReadBytes((int)stream.Length);
-                    string sqlQuery = "insert into Products(productName,productPrice,productCat,expDate,manuDate,productImage,productQuantity) Values(@prodName,@prodPrice,@prodCat,@expDate,@manuDate,@prodImage,@productQty";
+                    string sqlQuery = "insert into Products(productName,productPrice,productCat,expDate,manuDate,productImage,productQuantity) VALUES(@pName,@pPrice,@pCat,@eDate,@mDate,@pImage,@pQty)";
                     SqlCommand cmd = new SqlCommand(sqlQuery, Connect.returnConn());
                 //cmd.Parameters.AddWithValue("@prodID", bunifuTextBox1.Text);
-                    cmd.Parameters.Add(new SqlParameter("@prodImage", images));
-                    cmd.Parameters.AddWithValue("@prodName", bunifuTextBox3.Text);
-                    cmd.Parameters.AddWithValue("@prodPrice", bunifuTextBox2.Text);
-                    cmd.Parameters.AddWithValue("@expDate", bunifuDatePicker2.Text);
-                    cmd.Parameters.AddWithValue("@manuDate", bunifuTextBox2.Text);
-                    cmd.Parameters.AddWithValue("@prodCat", gunaComboBox1.Text);
-                    cmd.Parameters.AddWithValue("@productQty", bunifuTextBox1.Text);
+                    cmd.Parameters.Add(new SqlParameter("@pImage", images));
+                    cmd.Parameters.AddWithValue("@pName", bunifuTextBox3.Text);
+                    cmd.Parameters.AddWithValue("@pPrice", bunifuTextBox2.Text);
+                    cmd.Parameters.AddWithValue("@eDate", bunifuDatePicker2.Text);
+                    cmd.Parameters.AddWithValue("@mDate", bunifuTextBox2.Text);
+                    cmd.Parameters.AddWithValue("@pCat", gunaComboBox1.Text);
+                    cmd.Parameters.AddWithValue("@pQty", bunifuTextBox1.Text);
 
 
                     if (cmd.ExecuteNonQuery() == 1)
