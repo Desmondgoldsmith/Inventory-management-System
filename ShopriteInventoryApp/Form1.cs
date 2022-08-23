@@ -61,5 +61,17 @@ namespace ShopriteInventoryApp
 
             }
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var products = new ManageProducts();
+            products.Show();
+        }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

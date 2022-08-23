@@ -46,6 +46,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
       <HintPath>..\..\..\..\..\OneDrive\Desktop\Bunifu\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>..\..\..\..\..\OneDrive\Desktop\Bunifu\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
       <HintPath>..\..\..\..\..\OneDrive\Desktop\Bunifu\BunifuCrack-main\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
     </Reference>
@@ -70,9 +73,14 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>..\..\..\..\..\OneDrive\Desktop\Bunifu\BunifuCrack-main\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\..\OneDrive\Desktop\Bunifu\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,6 +104,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProducts.Designer.cs">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="MotherOfAllConnections.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,11 +118,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ShopriteDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ShopriteDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopriteDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ShopriteDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopriteDataSet2.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProducts.resx">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -139,6 +166,28 @@
     </None>
     <None Include="ShopriteDataSet.xss">
       <DependentUpon>ShopriteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ShopriteDataSet1.xsc">
+      <DependentUpon>ShopriteDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ShopriteDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShopriteDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ShopriteDataSet1.xss">
+      <DependentUpon>ShopriteDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ShopriteDataSet2.xsc">
+      <DependentUpon>ShopriteDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ShopriteDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShopriteDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ShopriteDataSet2.xss">
+      <DependentUpon>ShopriteDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

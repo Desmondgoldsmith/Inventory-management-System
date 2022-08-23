@@ -52,7 +52,8 @@ namespace ShopriteInventoryApp
             //load id into textbox60
             Random generator = new Random();
             String r = generator.Next(0, 1000000).ToString("D6");
-            bunifuTextBox1.Text = r;
+            string addons = "#CD";
+            bunifuTextBox1.Text = addons+r;
         }
         private void Randomgenerator()
         {
