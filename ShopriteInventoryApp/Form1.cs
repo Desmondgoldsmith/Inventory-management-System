@@ -45,6 +45,13 @@ namespace ShopriteInventoryApp
             SqlCommand cmd = new SqlCommand(query, Connect.returnConn());
             Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
             bunifuLabel11.Text = count.ToString();
+
+            //count products
+            string prodQuery = "SELECT COUNT(*) FROM Products ";
+            SqlCommand prodCmd = new SqlCommand(prodQuery, Connect.returnConn());
+            Int32 countProduct = Convert.ToInt32(prodCmd.ExecuteScalar());
+            bunifuLabel4.Text = countProduct.ToString();
+
         }
 
         private void bunifuButton7_Click(object sender, EventArgs e)
