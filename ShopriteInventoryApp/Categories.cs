@@ -278,5 +278,30 @@ namespace ShopriteInventoryApp
                 Connect.closeConn();
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void categoriesBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuColorTransition1_ColorChanged(object sender, Bunifu.UI.WinForms.BunifuColorTransition.ColorChangedEventArgs e)
+        {
+
+        }
     }
 }

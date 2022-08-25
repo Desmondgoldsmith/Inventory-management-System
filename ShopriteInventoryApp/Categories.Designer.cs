@@ -103,6 +103,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 11;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // bunifuButton4
             // 
@@ -558,6 +559,7 @@
             // 
             this.categoriesBindingSource.DataMember = "Categories";
             this.categoriesBindingSource.DataSource = this.shopriteDataSet;
+            this.categoriesBindingSource.CurrentChanged += new System.EventHandler(this.categoriesBindingSource_CurrentChanged);
             // 
             // shopriteDataSet
             // 
@@ -730,6 +732,7 @@
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(1284, 100);
             this.bunifuPanel2.TabIndex = 0;
+            this.bunifuPanel2.Click += new System.EventHandler(this.bunifuPanel2_Click);
             // 
             // button1
             // 
@@ -758,6 +761,7 @@
             this.bunifuLabel1.Text = "MANAGE CATEGORIES";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel1.Click += new System.EventHandler(this.bunifuLabel1_Click);
             // 
             // categoriesTableAdapter
             // 
@@ -775,6 +779,7 @@
             this.bunifuColorTransition1.ProgessValue = 0;
             this.bunifuColorTransition1.StartColor = System.Drawing.Color.White;
             this.bunifuColorTransition1.TransitionControl = null;
+            this.bunifuColorTransition1.ColorChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuColorTransition.ColorChangedEventArgs>(this.bunifuColorTransition1_ColorChanged);
             // 
             // gunaAnimateWindow1
             // 

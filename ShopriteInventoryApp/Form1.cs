@@ -52,6 +52,12 @@ namespace ShopriteInventoryApp
             Int32 countProduct = Convert.ToInt32(prodCmd.ExecuteScalar());
             bunifuLabel4.Text = countProduct.ToString();
 
+            //count users
+            string uQuery = "SELECT COUNT(*) FROM Users ";
+            SqlCommand uCmd = new SqlCommand(uQuery, Connect.returnConn());
+            Int32 uCount = Convert.ToInt32(uCmd.ExecuteScalar());
+            bunifuLabel9.Text = uCount.ToString();
+
         }
 
         private void bunifuButton7_Click(object sender, EventArgs e)
@@ -77,6 +83,18 @@ namespace ShopriteInventoryApp
         }
 
         private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var user = new Users();
+            user.Show();
+        }
+
+        private void bunifuLabel8_Click(object sender, EventArgs e)
         {
 
         }

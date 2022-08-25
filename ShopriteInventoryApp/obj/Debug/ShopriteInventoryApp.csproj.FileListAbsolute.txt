@@ -24,3 +24,4 @@ C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\Sh
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\bin\Debug\Guna.UI.dll
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.ManageProducts.resources
+C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Users.resources
