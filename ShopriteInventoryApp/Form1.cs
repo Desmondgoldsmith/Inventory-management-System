@@ -105,5 +105,12 @@ namespace ShopriteInventoryApp
             var Customer = new Customers();
             Customer.Show();
         }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var st = new Stocks();
+            st.Show();
+        }
     }
 }

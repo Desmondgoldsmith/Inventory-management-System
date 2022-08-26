@@ -159,7 +159,7 @@ namespace ShopriteInventoryApp
             {
 
                 Connect.openConn();
-                string query = "Update Customers set customerName = @cName, customerContact = @cNumber , cAddress = @cAdd WHERE customerID = @cID";
+                string query = "Update Customers set customerName = @cName, customerContact = @cNumber , customerAddress = @cAdd WHERE customerID = @cID";
                 SqlCommand cmd = new SqlCommand(query, Connect.returnConn());
                 cmd.Parameters.AddWithValue("@cID", bunifuTextBox1.Text);
                 cmd.Parameters.AddWithValue("@cName", bunifuTextBox2.Text);
@@ -168,8 +168,8 @@ namespace ShopriteInventoryApp
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("User With Name  '" + bunifuTextBox2.Text + "' Updated Successfully", "Saved!", 0, MessageBoxIcon.Information);
-                                       Clear();
+                    MessageBox.Show("Customer With Name  '" + bunifuTextBox2.Text + "' Updated Successfully", "Saved!", 0, MessageBoxIcon.Information);
+                     Clear();
                     this.customersTableAdapter.Fill(this.shopriteDataSet5.Customers);
 
                 }
@@ -234,8 +234,8 @@ namespace ShopriteInventoryApp
                     if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Customer Deleted Successfully", "Success", 0, MessageBoxIcon.Information);
-                   Clear();
                         this.customersTableAdapter.Fill(this.shopriteDataSet5.Customers);
+                        Clear();
 
                     }
                     else
@@ -298,6 +298,13 @@ namespace ShopriteInventoryApp
                 bunifuTextBox4.Text = row.Cells[3].Value.ToString();
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var main = new Form1();
+            main.Show();
         }
     }
 

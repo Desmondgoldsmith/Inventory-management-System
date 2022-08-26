@@ -149,6 +149,7 @@
             this.bunifuPanel3.ShowBorders = true;
             this.bunifuPanel3.Size = new System.Drawing.Size(1284, 701);
             this.bunifuPanel3.TabIndex = 1;
+            this.bunifuPanel3.Click += new System.EventHandler(this.bunifuPanel3_Click);
             // 
             // bunifuTextBox1
             // 

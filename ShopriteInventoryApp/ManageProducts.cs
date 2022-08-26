@@ -58,11 +58,11 @@ namespace ShopriteInventoryApp
             gunaComboBox1.ValueMember = "CategoryName";
             gunaComboBox1.SelectedIndex = -1;
 
-            this.bunifuDatePicker1.Format = DateTimePickerFormat.Custom;
-            this.bunifuDatePicker1.CustomFormat = " ";
+            //this.bunifuDatePicker1.Format = DateTimePickerFormat.Custom;
+            //this.bunifuDatePicker1.CustomFormat = " ";
 
-            this.bunifuDatePicker2.Format = DateTimePickerFormat.Custom;
-            this.bunifuDatePicker2.CustomFormat = " ";
+            //this.bunifuDatePicker2.Format = DateTimePickerFormat.Custom;
+            //this.bunifuDatePicker2.CustomFormat = " ";
 
 
 
@@ -387,6 +387,11 @@ namespace ShopriteInventoryApp
         }
 
         private void bunifuTextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel3_Click(object sender, EventArgs e)
         {
 
         }
