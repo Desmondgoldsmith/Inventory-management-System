@@ -81,12 +81,15 @@ namespace ShopriteInventoryApp
 
                     string prodName = bunifuTextBox5.Text;
                     string qty = bunifuTextBox7.Text;
-                    string u_price = bunifuTextBox6.Text;
+                    string u_price =   bunifuTextBox6.Text;
                     string t_price = bunifuTextBox9.Text;
                     string[] row = { prodName, qty, u_price, t_price };
                     bunifuDataGridView1.Rows.Add(row);
                     //clear record
-                    ClearRecord();
+                    bunifuTextBox5.Clear();
+                    bunifuTextBox6.Clear();
+                    bunifuTextBox7.Clear();
+                    bunifuTextBox9.Clear();
                     //calculating the sum of total prices
                     int sum = 0;
                     for (int i = 0; i < bunifuDataGridView1.Rows.Count; ++i)
@@ -109,6 +112,10 @@ namespace ShopriteInventoryApp
         }
         public void ClearRecord()
         {
+            bunifuTextBox1.Clear();
+            bunifuTextBox2.Clear();
+            bunifuTextBox3.Clear();
+            bunifuTextBox5.Clear();
             bunifuTextBox5.Clear();
             bunifuTextBox6.Clear();
             bunifuTextBox7.Clear();
@@ -271,6 +278,93 @@ namespace ShopriteInventoryApp
             {
                 MessageBox.Show("THE FOLLOWING ERROR OCCURED : " + ex.Message);
             }
+        }
+
+        public void saveStock()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(bunifuTextBox1.Text))
+                {
+                    MessageBox.Show("Set The Invoice Number", "Invoice Number", 0, MessageBoxIcon.Error);
+                    bunifuTextBox1.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(bunifuDatePicker1.Text))
+                {
+                    MessageBox.Show("Set The Invoice Date", "Invoice Date", 0, MessageBoxIcon.Error);
+                    bunifuDatePicker1.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(bunifuTextBox2.Text))
+                {
+                    MessageBox.Show("Set the Customer Name", "Customer Name", 0, MessageBoxIcon.Error);
+                    bunifuTextBox2.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(bunifuTextBox3.Text))
+                {
+                    MessageBox.Show("Set The Customer's Contact", "Contact", 0, MessageBoxIcon.Error);
+                    bunifuTextBox3.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(bunifuTextBox4.Text))
+                {
+                    MessageBox.Show("Set The Customer's Address", "Address", 0, MessageBoxIcon.Error);
+                    bunifuTextBox4.Focus();
+                    return;
+                }
+                else
+                {
+                    bool shown = false;
+                    for (int i = 0; i < bunifuDataGridView1.Rows.Count; i++)
+                    {
+
+                        int count = bunifuDataGridView1.Rows.Count;
+                        SqlCommand cmd1 = new SqlCommand("insert into Stocks(invoiceNum,invoiceDate,customerName,customerContact,cAddress,productName,productPrice,productQuantity,Amount,grandTotal) values('" + bunifuTextBox1.Text + "','" + bunifuDatePicker1.Text + "','" + bunifuTextBox2.Text + "','" + bunifuTextBox3.Text + "','" + bunifuTextBox4.Text + "','" + bunifuDataGridView1.Rows[i].Cells[0].Value.ToString() + "','" + bunifuDataGridView1.Rows[i].Cells[1].Value.ToString() + "','" + bunifuDataGridView1.Rows[i].Cells[2].Value.ToString() + "','" + bunifuDataGridView1.Rows[i].Cells[3].Value.ToString() + "','" + bunifuTextBox8.Text + "')", Connect.returnConn());
+                        Connect.openConn();
+                        if (cmd1.ExecuteNonQuery() >= 1)
+                        {
+
+                            if (!shown)
+                            {
+                                MessageBox.Show("Stock Saved For Customer With Name '" + bunifuTextBox2.Text + "' Successfully", "Success!", 0, MessageBoxIcon.Information);
+                                //button10.Enabled = false;
+                                ////button10.ForeColor = Color.Red;
+                                ////button10.BackColor = Color.White;
+                                //button7.Enabled = false;
+                                //button8.Enabled = false;
+                                //button9.Enabled = false;
+
+                                shown = true;
+                            }
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error In Saving Invoice ", "Error!", 0, MessageBoxIcon.Error);
+
+                        }
+
+
+
+                    }
+                }     
+              }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Connect.closeConn();
+            }
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            saveStock();
         }
     }
 }
