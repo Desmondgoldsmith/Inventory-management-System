@@ -27,3 +27,5 @@ C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\Sh
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Users.resources
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Customers.resources
 C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Stocks.resources
+C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Orders.resources
+C:\Users\Lenovo PC\Documents\Visual Studio 2015\Projects\ShopriteInventoryApp\ShopriteInventoryApp\obj\Debug\ShopriteInventoryApp.Login.resources

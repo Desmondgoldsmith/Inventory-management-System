@@ -194,7 +194,7 @@
             this.bunifuDataGridView1.RowHeadersVisible = false;
             this.bunifuDataGridView1.RowTemplate.Height = 40;
             this.bunifuDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridView1.Size = new System.Drawing.Size(1260, 165);
+            this.bunifuDataGridView1.Size = new System.Drawing.Size(1260, 168);
             this.bunifuDataGridView1.TabIndex = 6;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.ForestGreen;
             // 
@@ -1174,7 +1174,7 @@
             this.bunifuTextBox8.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox8.DefaultFont = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTextBox8.DefaultText = "";
-            this.bunifuTextBox8.FillColor = System.Drawing.Color.White;
+            this.bunifuTextBox8.FillColor = System.Drawing.Color.SeaGreen;
             this.bunifuTextBox8.ForeColor = System.Drawing.Color.Red;
             this.bunifuTextBox8.HideSelection = true;
             this.bunifuTextBox8.IconLeft = null;
@@ -1205,13 +1205,13 @@
             stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox8.OnHoverState = stateProperties7;
             stateProperties8.BorderColor = System.Drawing.Color.SeaGreen;
-            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.FillColor = System.Drawing.Color.SeaGreen;
             stateProperties8.ForeColor = System.Drawing.Color.Red;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox8.OnIdleState = stateProperties8;
             this.bunifuTextBox8.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox8.PasswordChar = '\0';
-            this.bunifuTextBox8.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.bunifuTextBox8.PlaceholderForeColor = System.Drawing.Color.White;
             this.bunifuTextBox8.PlaceholderText = "Grand Total";
             this.bunifuTextBox8.ReadOnly = true;
             this.bunifuTextBox8.ScrollBars = System.Windows.Forms.ScrollBars.None;

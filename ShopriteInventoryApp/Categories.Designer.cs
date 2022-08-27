@@ -63,8 +63,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.categoriesTableAdapter = new ShopriteInventoryApp.ShopriteDataSetTableAdapters.CategoriesTableAdapter();
-            this.bunifuColorTransition1 = new Bunifu.UI.WinForms.BunifuColorTransition(this.components);
-            this.gunaAnimateWindow1 = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
@@ -767,26 +765,6 @@
             // 
             this.categoriesTableAdapter.ClearBeforeFill = true;
             // 
-            // bunifuColorTransition1
-            // 
-            this.bunifuColorTransition1.AutoTransition = false;
-            this.bunifuColorTransition1.ColorArray = new System.Drawing.Color[] {
-        System.Drawing.Color.Purple,
-        System.Drawing.Color.LightBlue,
-        System.Drawing.Color.Orange};
-            this.bunifuColorTransition1.EndColor = System.Drawing.Color.White;
-            this.bunifuColorTransition1.Interval = 10;
-            this.bunifuColorTransition1.ProgessValue = 0;
-            this.bunifuColorTransition1.StartColor = System.Drawing.Color.White;
-            this.bunifuColorTransition1.TransitionControl = null;
-            this.bunifuColorTransition1.ColorChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuColorTransition.ColorChangedEventArgs>(this.bunifuColorTransition1_ColorChanged);
-            // 
-            // gunaAnimateWindow1
-            // 
-            this.gunaAnimateWindow1.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-            this.gunaAnimateWindow1.Interval = 100;
-            this.gunaAnimateWindow1.TargetControl = null;
-            // 
             // Categories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -830,8 +808,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton4;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton3;
-        private Bunifu.UI.WinForms.BunifuColorTransition bunifuColorTransition1;
         private System.Windows.Forms.TextBox textBox1;
-        private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow1;
     }
 }

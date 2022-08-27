@@ -112,5 +112,12 @@ namespace ShopriteInventoryApp
             var st = new Stocks();
             st.Show();
         }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+            var order = new Orders();
+            this.Close();
+            order.Show();
+        }
     }
 }
