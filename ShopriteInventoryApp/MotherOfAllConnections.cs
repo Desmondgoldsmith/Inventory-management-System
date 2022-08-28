@@ -9,7 +9,7 @@ namespace ShopriteInventoryApp
 {
     class MotherOfAllConnections
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-B22ALD5;Initial Catalog=Shoprite;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-B22ALD5;Initial Catalog=Shoprite;Integrated Security=True;");
          
         public void openConn()
         {

@@ -220,7 +220,7 @@ namespace ShopriteInventoryApp
                 bunifuPictureBox1.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 Byte[] pic = stream.ToArray();
                 Connect.openConn();
-                string query = "Update Users set userId = @uID, userName = @uName, phoneNumber = @pNumber , email = @eMail, userPassword = @uPass , userRole = @uRole , userImage = @uImage WHERE id = @id";
+                string query = "Update Users set  userName = @uName, phoneNumber = @pNumber , email = @eMail, userPassword = @uPass , userRole = @uRole , userImage = @uImage WHERE userId = @uID";
                 SqlCommand cmd = new SqlCommand(query, Connect.returnConn());
                 cmd.Parameters.AddWithValue("@uImage", pic);
                 cmd.Parameters.AddWithValue("@uID", bunifuTextBox1.Text);
@@ -400,7 +400,7 @@ namespace ShopriteInventoryApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var mainForm = new Form1();
+            var mainForm =  (Form1)Application.OpenForms["Form1"];
             this.Close();
             mainForm.Show();
         }

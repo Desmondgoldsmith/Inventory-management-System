@@ -71,7 +71,7 @@ namespace ShopriteInventoryApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var Main = new Form1();
+            var Main =  (Form1)Application.OpenForms["Form1"];
             this.Close();
             Main.Show();
         }

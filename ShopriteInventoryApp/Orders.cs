@@ -21,14 +21,31 @@ namespace ShopriteInventoryApp
         {
             // TODO: This line of code loads data into the 'shopriteDataSet6.Stocks' table. You can move, or remove it, as needed.
             this.stocksTableAdapter.Fill(this.shopriteDataSet6.Stocks);
-
+            textBox1.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var mainForm = new Form1();
+            var mainForm =  (Form1)Application.OpenForms["Form1"];
             this.Close();
             mainForm.Show();
+        }
+
+        private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = bunifuDataGridView1.Rows[e.RowIndex];
+                textBox1.Text = row.Cells[1].Value.ToString();
+            }
+            var receipt = new PrintReports();
+            receipt.textBox1.Text = this.textBox1.Text;
+            receipt.Show();
+        }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

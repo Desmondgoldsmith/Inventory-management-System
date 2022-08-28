@@ -140,7 +140,7 @@ namespace ShopriteInventoryApp
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var main = new Form1();
+            var main =  (Form1)Application.OpenForms["Form1"];
             main.Show();
         }
 
@@ -329,13 +329,7 @@ namespace ShopriteInventoryApp
                             if (!shown)
                             {
                                 MessageBox.Show("Stock Saved For Customer With Name '" + bunifuTextBox2.Text + "' Successfully", "Success!", 0, MessageBoxIcon.Information);
-                                //button10.Enabled = false;
-                                ////button10.ForeColor = Color.Red;
-                                ////button10.BackColor = Color.White;
-                                //button7.Enabled = false;
-                                //button8.Enabled = false;
-                                //button9.Enabled = false;
-
+                                
                                 shown = true;
                             }
 
@@ -365,6 +359,36 @@ namespace ShopriteInventoryApp
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
             saveStock();
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            printReceipt();
+        }
+
+        public void printReceipt()
+        {
+            try
+            {
+                MessageBox.Show("Please Wait Patiently For The Receipts", "Saved", 0, MessageBoxIcon.Information);
+
+                var reports = new PrintReports();
+                reports.textBox1.Text = this.bunifuTextBox1.Text;
+                Connect.closeConn();
+                bunifuDataGridView1.Rows.Clear();
+                reports.Show();
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                ClearRecord();
+
+            }
         }
     }
 }

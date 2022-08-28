@@ -303,7 +303,7 @@ namespace ShopriteInventoryApp
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var main = new Form1();
+            var main =  (Form1)Application.OpenForms["Form1"];
             main.Show();
         }
     }
