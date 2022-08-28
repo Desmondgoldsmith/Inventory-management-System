@@ -91,6 +91,8 @@ namespace ShopriteInventoryApp
                     bunifuTextBox7.Clear();
                     bunifuTextBox9.Clear();
                     //calculating the sum of total prices
+
+                    
                     int sum = 0;
                     for (int i = 0; i < bunifuDataGridView1.Rows.Count; ++i)
                     {

@@ -26,13 +26,8 @@ namespace ShopriteInventoryApp
         string role;
         private void Login_Load(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(20, 20, 20);
-            gunaPanel1.BackColor = Color.FromArgb(32, 32, 32);
-            gunaPanel2.BackColor = Color.FromArgb(32, 32, 32);
-            gunaLineTextBox1.BackColor = Color.FromArgb(32, 32, 32);
-            gunaLineTextBox2.BackColor = Color.FromArgb(32, 32, 32);
             gunaLineTextBox2.UseSystemPasswordChar = true;
-
+            bunifuLabel2.Visible = false;
         }
 
         private void gunaLabel1_Click(object sender, EventArgs e)
@@ -42,11 +37,13 @@ namespace ShopriteInventoryApp
 
         private void gunaLineTextBox1_TextChanged(object sender, EventArgs e)
         {
+            bunifuLabel2.Visible = false;
 
         }
 
         private void gunaLineTextBox2_TextChanged(object sender, EventArgs e)
         {
+            bunifuLabel2.Visible = false;
 
         }
 
@@ -70,15 +67,16 @@ namespace ShopriteInventoryApp
             //Validating textboxes
             if (string.IsNullOrWhiteSpace(gunaLineTextBox1.Text.ToString()))
             {
-
-                MessageBox.Show("Please Input Your UserName", "UserName Required", 0, MessageBoxIcon.Information);
+                bunifuLabel2.Visible = true;
+                bunifuLabel2.Text = "Please Input Your UserName !!";
                 gunaLineTextBox1.Focus();
                 return;
             }
             if (string.IsNullOrWhiteSpace(gunaLineTextBox2.Text.ToString()))
             {
 
-                MessageBox.Show("Please Input Your Password", "Password Required", 0, MessageBoxIcon.Information);
+                bunifuLabel2.Visible = true;
+                bunifuLabel2.Text = "Please Input Your Password !!";
                 gunaLineTextBox2.Focus();
                 return;
             }
@@ -86,6 +84,8 @@ namespace ShopriteInventoryApp
             {
                 try
                 {
+                    bunifuLabel2.Visible = false;
+
                     //selecting from the table and comparing values in textboxes to values in table
                     Connect.openConn();
                     query = "SELECT * FROM Users WHERE userName = @uname  and  userPassword = @upass";
@@ -115,7 +115,7 @@ namespace ShopriteInventoryApp
                                 Byte[] data = new Byte[0];
                                 data = (Byte[])dr.GetValue(7);
                                 MemoryStream mem = new MemoryStream(data);
-                                main.bunifuPictureBox1.Image = Image.FromStream(mem);
+                                main.bunifuPictureBox2.Image = Image.FromStream(mem);
 
                                 this.Hide();
                             }
@@ -130,21 +130,25 @@ namespace ShopriteInventoryApp
                                 Byte[] data = new Byte[0];
                                 data = (Byte[])dr.GetValue(7);
                                 MemoryStream mem = new MemoryStream(data);
-                                main.bunifuPictureBox1.Image = Image.FromStream(mem);
+                                main.bunifuPictureBox2.Image = Image.FromStream(mem);
 
                                 this.Hide();
                             }
 
                             else
                             {
-                        MessageBox.Show("Please enter Correct Username and Password");
-                    }
-                }
+                                bunifuLabel2.Visible = true;
+                                bunifuLabel2.Text = "Please enter Correct Username and Password";
+
+                                //MessageBox.Show("Please enter Correct Username and Password");
+                            }
+                        }
                    
                     }
                     else
                     {
-                        MessageBox.Show("Wrong Username Or Password", "Failed To Login", 0, MessageBoxIcon.Error);
+                        bunifuLabel2.Visible = true;
+                        bunifuLabel2.Text = "Wrong Username or Password";
                     }
                 }
                 catch (Exception ex)
@@ -169,6 +173,16 @@ namespace ShopriteInventoryApp
             {
                 gunaLineTextBox2.UseSystemPasswordChar = true;
             }
+        }
+
+        private void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 

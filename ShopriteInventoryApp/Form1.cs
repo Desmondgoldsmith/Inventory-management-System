@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Runtime.InteropServices;
 namespace ShopriteInventoryApp
 {
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             InitializeComponent();
@@ -41,22 +42,35 @@ namespace ShopriteInventoryApp
         private void Form1_Load(object sender, EventArgs e)
         {
             Connect.openConn();
-            string query = "SELECT COUNT(*) FROM Categories ";
+            string query = "SELECT COUNT(*) FROM Customers ";
             SqlCommand cmd = new SqlCommand(query, Connect.returnConn());
             Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
-            bunifuLabel11.Text = count.ToString();
+            bunifuLabel13.Text = count.ToString();
 
-            //count products
+            ////count products
             string prodQuery = "SELECT COUNT(*) FROM Products ";
             SqlCommand prodCmd = new SqlCommand(prodQuery, Connect.returnConn());
             Int32 countProduct = Convert.ToInt32(prodCmd.ExecuteScalar());
-            bunifuLabel4.Text = countProduct.ToString();
+            bunifuLabel10.Text = countProduct.ToString();
 
             //count users
             string uQuery = "SELECT COUNT(*) FROM Users ";
             SqlCommand uCmd = new SqlCommand(uQuery, Connect.returnConn());
             Int32 uCount = Convert.ToInt32(uCmd.ExecuteScalar());
             bunifuLabel9.Text = uCount.ToString();
+
+//          Amount
+            var orders = new Orders();
+            SqlCommand sum = new SqlCommand("SELECT SUM(grandTotal) FROM  Stocks", Connect.returnConn());
+             object summ = sum.ExecuteScalar();
+
+            this.bunifuLabel5.Text = summ.ToString();
+
+            //orders
+            string Orquery = "SELECT count(Distinct(invoiceNum)) FROM Stocks ";
+            SqlCommand Orcmd = new SqlCommand(Orquery, Connect.returnConn());
+            Int32 Orcount = Convert.ToInt32(Orcmd.ExecuteScalar());
+            bunifuLabel14.Text = count.ToString();
 
         }
 
@@ -118,6 +132,11 @@ namespace ShopriteInventoryApp
             var order = new Orders();
             this.Close();
             order.Show();
+        }
+
+        private void bunifuLabel6_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
