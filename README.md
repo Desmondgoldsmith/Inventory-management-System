@@ -19,3 +19,5 @@ git clone https://github.com/Desmondgoldsmith/Inventory-management-System.git
 ![stocks](https://user-images.githubusercontent.com/62439177/187102202-800313fe-75e6-4051-8da8-377ece770078.PNG)
 ![products](https://user-images.githubusercontent.com/62439177/187102256-2b45b883-a506-4e2a-ab45-48809768cec7.PNG)
 ![orders](https://user-images.githubusercontent.com/62439177/187102272-03afe6cf-c25e-415d-8b62-f045612a7541.PNG)
+
+![Reports](https://user-images.githubusercontent.com/62439177/187103037-a6e02fc0-1fba-4612-bb19-d6603081de71.PNG)
