@@ -424,5 +424,12 @@ namespace ShopriteInventoryApp
 
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var mainForm = (Form1)Application.OpenForms["Form1"];
+            this.Close();
+            mainForm.Show();
+        }
     }
 }

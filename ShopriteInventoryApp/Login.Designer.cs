@@ -83,7 +83,7 @@
             this.gunaAdvenceButton1.Image = null;
             this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaAdvenceButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(0, 374);
+            this.gunaAdvenceButton1.Location = new System.Drawing.Point(9, 326);
             this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
             this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.SteelBlue;
             this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -91,7 +91,7 @@
             this.gunaAdvenceButton1.OnHoverImage = null;
             this.gunaAdvenceButton1.OnHoverLineColor = System.Drawing.Color.SteelBlue;
             this.gunaAdvenceButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.Size = new System.Drawing.Size(308, 42);
+            this.gunaAdvenceButton1.Size = new System.Drawing.Size(290, 42);
             this.gunaAdvenceButton1.TabIndex = 4;
             this.gunaAdvenceButton1.Text = "LOGIN";
             this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -197,6 +197,7 @@
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Castellar", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.label1.Location = new System.Drawing.Point(265, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 35);

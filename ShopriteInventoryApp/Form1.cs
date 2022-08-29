@@ -129,8 +129,10 @@ namespace ShopriteInventoryApp
 
         private void bunifuButton6_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
             var order = new Orders();
-            this.Close();
+
             order.Show();
         }
 

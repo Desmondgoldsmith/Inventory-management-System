@@ -26,15 +26,11 @@ namespace ShopriteInventoryApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
+     
                 this.Hide();
-                var mainx = (Form1)Application.OpenForms["Form1"];
-                mainx.Show();
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                Form1 mainForm = (Form1)Application.OpenForms["Form1"];
+                mainForm.Show();
+            
         }
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
